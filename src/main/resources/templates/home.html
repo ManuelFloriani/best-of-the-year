@@ -12,5 +12,10 @@
   <h1 style="display:inline" th:text="${currentYear}"></h1>
   <h1 style="display:inline"> from</h1>
   <h1 style="display:inline" th:text="${myName}"></h1>
+
+<h2>Top 10 songs</h2>
+<span th:text="${getBestSongs()}"></span>
+<h2>Top 10 movies</h2>
+<span th:text="${getBestMovies}"></span>
 </body>
 </html>
