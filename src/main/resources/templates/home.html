@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <th:block th:replace="/fragments/resources :: headResources"></th:block>
     <title>Best of the year</title>
 </head>
 <body>
+<div>
+    <img th:src="@{/logo.png}" alt="logo">
+</div>
   <h1 style="display:inline">Welcome to my personal best for the year </h1>
   <h1 style="display:inline" th:text="${currentYear}"></h1>
   <h1 style="display:inline"> from</h1>
@@ -23,5 +23,7 @@
       <li th:each="song : ${songs}" th:text="${song.title}"></li>
   </ul>
 
+
+<script th:src="@{/webjars/bootstrap/5.3.2/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>

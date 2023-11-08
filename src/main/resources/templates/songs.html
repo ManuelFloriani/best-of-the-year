@@ -1,10 +1,7 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <th:block th:replace="/fragments/resources :: headResources"></th:block>
     <title>Document</title>
 </head>
 <body>
@@ -12,5 +9,7 @@
 <ul>
     <li th:each="song : ${songs}" th:text="${song.title}"></li>
 </ul>
+
+<script th:src="@{/webjars/bootstrap/5.3.2/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
