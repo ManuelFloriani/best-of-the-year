@@ -17,10 +17,11 @@ import java.util.List;
 @RequestMapping("/")
 public class IndexController {
     private static final String name = "Manuel";
+    private static int year = Year.now().getValue();
 
     @GetMapping("/")
     public String index(Model model) {
-        int year = Year.now().getValue();
+
         model.addAttribute("currentYear", year);
         model.addAttribute("myName", name);
         model.addAttribute("movies", getBestMovies());
@@ -50,9 +51,23 @@ public class IndexController {
         return new ArrayList<>(Arrays.asList(songsArray));
     }
 
+    @GetMapping("movies")
+    public String movies(Model model) {
+        model.addAttribute("currentYear", year);
+        model.addAttribute("movies", getBestMovies());
+        return "movies";
+    }
+
+    @GetMapping("songs")
+    public String songs(Model model) {
+        model.addAttribute("currentYear", year);
+        model.addAttribute("songs", getBestSongs());
+        return "songs";
+    }
     @GetMapping("movies/{id}")
     public String movieDetail(@PathVariable("id") String id, Model model) {
         Movie movie = getMovieById(id);
+        model.addAttribute("currentYear", year);
         model.addAttribute("movie", movie);
         return "movie-details";
     }
@@ -69,6 +84,7 @@ public class IndexController {
     @GetMapping("songs/{id}")
     public String songDetail(@PathVariable("id") String id, Model model) {
         Song song = getSongById(id);
+        model.addAttribute("currentYear", year);
         model.addAttribute("song", song);
         return "song-details";
     }

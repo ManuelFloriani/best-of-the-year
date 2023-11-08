@@ -8,9 +8,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 th:text="|TOP 5 MOVIES FOR THE YEAR ${currentYear}|"></h1>
-    <ul>
-        <li th:each="movie : ${movies}" th:text="${movie.title}"></li>
-    </ul>
+<h1 th:text="|TOP 5 SONGS FOR THE YEAR ${currentYear}|"></h1>
+<ul>
+    <li th:each="song : ${songs}" th:text="${song.title}"></li>
+</ul>
 </body>
 </html>
